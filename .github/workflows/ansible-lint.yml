@@ -16,6 +16,8 @@ jobs:
           python-version: "3.12"
       - name: Install ansible-lint
         run: pip install ansible-lint ansible
+      - name: Install required Ansible collections
+        run: ansible-galaxy collection install amazon.aws community.general community.mysql community.postgresql
       - name: Run ansible-lint
         run: ansible-lint --force-color
       - name: YAML syntax check
