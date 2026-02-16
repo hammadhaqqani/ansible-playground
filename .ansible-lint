@@ -44,6 +44,21 @@ skip_list:
   # Variable naming in roles - examples don't follow prefix conventions
   - var-naming
 
+exclude_paths:
+  # Legacy playbooks using removed ec2 module (removed in amazon.aws 6.0)
+  - jboss-standalone/demo-aws-launch.yml
+  - lamp_haproxy/aws/demo-aws-launch.yml
+  - lamp_haproxy/provision.yml
+  - windows/wamp_haproxy/demo-aws-wamp-launch.yml
+  - mongodb/site.yml
+  # Legacy playbooks using removed features (include, first_available_file, netscaler)
+  - language_features/netscaler.yml
+  - language_features/selective_file_sources.yml
+  - language_features/nested_playbooks.yml
+  - language_features/get_url.yml
+  - language_features/intermediate_example.yml
+  - language_features/tags.yml
+
 warn_list:
   - yaml[line-length]
   - yaml[octal-values]
