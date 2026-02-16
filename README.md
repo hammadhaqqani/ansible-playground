@@ -1,5 +1,7 @@
 # Ansible Playground
 
+[![Ansible Lint](https://github.com/hammadhaqqani/ansible-playground/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/hammadhaqqani/ansible-playground/actions/workflows/ansible-lint.yml)
+[![GitHub Pages](https://github.com/hammadhaqqani/ansible-playground/actions/workflows/pages.yml/badge.svg)](https://hammadhaqqani.github.io/ansible-playground/)
 [![Ansible](https://img.shields.io/badge/Ansible-%231A1918.svg?logo=ansible&logoColor=white)](https://www.ansible.com/)
 [![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/hammadhaqqani)
