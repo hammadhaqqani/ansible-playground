@@ -58,7 +58,7 @@ exclude_paths:
   - language_features/get_url.yml
   - language_features/intermediate_example.yml
   - language_features/tags.yml
-
+  - language_features/eucalyptus-ec2.yml
 warn_list:
   - yaml[line-length]
   - yaml[octal-values]
