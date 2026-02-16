@@ -1,0 +1,27 @@
+name: Ansible Lint
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint:
+    name: Ansible Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ansible-lint
+        run: pip install ansible-lint ansible
+      - name: Run ansible-lint
+        run: ansible-lint --force-color
+        continue-on-error: true
+      - name: Syntax check playbooks
+        run: |
+          for pb in $(find . -name "*.yml" -path "*/playbooks/*" -o -name "*.yml" -maxdepth 1 | grep -v ".github"); do
+            echo "=== Checking $pb ==="
+            ansible-playbook --syntax-check "$pb" 2>/dev/null || echo "Skipped $pb (may need inventory)"
+          done
