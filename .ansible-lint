@@ -1,5 +1,6 @@
 # Ansible-lint configuration for playground/example repository
-# Skip cosmetic and modernization rules that don't apply to example code
+# This is a collection of Ansible examples and demos, not production code.
+# Skip rules that are irrelevant or impractical to fix in example playbooks.
 
 skip_list:
   # FQCN rules - examples use short module names for readability
@@ -10,6 +11,8 @@ skip_list:
   # Naming conventions - examples use varied naming styles intentionally
   - name[casing]
   - name[missing]
+  - role-name
+  - var-naming[no-role-prefix]
   # File permissions - not relevant for example playbooks
   - risky-file-permissions
   # Changed-when - example commands don't need idempotency guards
@@ -18,21 +21,29 @@ skip_list:
   - jinja[spacing]
   # YAML truthy - examples use yes/no for readability
   - yaml[truthy]
-  # Command module suggestions - examples demonstrate shell/command usage
+  # Command/shell module rules - examples demonstrate both intentionally
   - command-instead-of-module
+  - command-instead-of-shell
   # Ignore-errors used intentionally in some examples
   - ignore-errors
   # Key ordering - not enforced for examples
   - key-order[task]
   # Args module - legacy argument style in examples
   - args[module]
-
-warn_list:
-  # These will warn but not fail
-  - deprecated-command-syntax
+  # Deprecated syntax - legacy examples preserve original Ansible patterns
+  - deprecated-bare-vars
   - deprecated-local-action
+  - deprecated-command-syntax
   - deprecated-module
+  # Package version pinning - examples use state=latest for simplicity
+  - package-latest
+  - latest[git]
+  # Schema validation - some examples use legacy playbook formats
   - schema[playbook]
   - schema[tasks]
+  # Variable naming in roles - examples don't follow prefix conventions
+  - var-naming
+
+warn_list:
   - yaml[line-length]
   - yaml[octal-values]
